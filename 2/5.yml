@@ -1,0 +1,24 @@
+- name: Config Chapter 2 Lab 2
+  hosts: target
+  tasks:
+    - name: Make new log dir
+      ansible.builtin.shell:
+        cmd: mkdir /var/log/rhcsa
+      become: true
+    - name: Make new log file
+      ansible.builtin.shell:
+        cmd: echo "A simple logfile" > /var/log/rhcsa/main.log
+      become: true
+    - name: Change file group to nobody
+      ansible.builtin.shell:
+        cmd: chown :nobody /var/log/rhcsa/main.log
+      become: true
+    - name: Set permissions on log file
+      ansible.builtin.shell:
+        cmd: chmod 604 /var/log/rhcsa/main.log
+      become: true
+    - name: Set permission on log dir
+      ansible.builtin.shell:
+        cmd: chmod 701 /var/log/rhcsa
+      become: true
+        

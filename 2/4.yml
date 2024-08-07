@@ -1,7 +1,7 @@
 - name: Config Chapter 2 Lab 2
   hosts: target
   tasks:
-    - name: Display 1st and 3rd fields in /etc/passwd
+    - name: Display 1st and 3rd fields (reverse order) in /etc/passwd and filter for 2-digit ID's
       ansible.builtin.shell:
         cmd: cat /etc/passwd | cut -d":" -f3,1 --output-delimiter " " | rev | grep -E "^[0-9][0-9] "
         
