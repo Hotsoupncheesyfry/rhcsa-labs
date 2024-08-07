@@ -1,0 +1,12 @@
+- name: Config Chapter 2 Lab 2
+  hosts: target
+  tasks:
+    - name: Create list of conf files in /etc
+      ansible.builtin.shell:
+        cmd: find /etc -name *.conf > ~/filelist.txt
+    - name: Count the number of files found
+      ansible.builtin.shell:
+        cmd: wc -l ~/filelist.txt
+    - name: Display lines that contain string "Security"
+      ansible.builtin.shell:
+        cmd: grep -i security ~/filelist.txt
