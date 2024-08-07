@@ -3,10 +3,10 @@
   tasks:
     - name: Create books dir
       ansible.builtin.shell:
-      cmd: mkdir ~/book
+        cmd: mkdir ~/book
     - name: Create files
       ansible.builtin.shell:
-      cmd: touch ~/book/Ch{0,1}{0..9}.txt
+        cmd: touch ~/book/Ch{0,1}{0..9}.txt
     - name: Remove extra file 
       ansible.builtin.shell:
-      cmd: rm ~/book/Ch00.txt
+        cmd: rm ~/book/Ch00.txt
