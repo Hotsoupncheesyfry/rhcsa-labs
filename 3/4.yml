@@ -7,6 +7,9 @@
     - name: Add hosts entry
       ansible.builtin.shell:
         cmd: echo "{{ tester_ip }} tester" >> /etc/hosts
+    - name: Test ping IP and hostname
+      ansible.builtin.shell:
+        cmd: ping -c 4 {{ tester_ip }}; ping -c 4 tester
 
 - name: Config other hosts 
   hosts: target2
@@ -17,3 +20,6 @@
     - name: Add hosts entry
       ansible.builtin.shell:
         cmd: echo "{{ server_ip }} server" >> /etc/hosts
+    - name: Test ping IP and hostname
+      ansible.builtin.shell:
+        cmd: ping -c 4 {{ server_ip }}; ping -c 4 server
