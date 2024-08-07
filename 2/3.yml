@@ -10,4 +10,5 @@
         cmd: wc -l ~/filelist.txt
     - name: Display lines that contain string "Security"
       ansible.builtin.shell:
-        cmd: grep -i security ~/filelist.txt
+        cmd: grep security ~/filelist.txt
+        

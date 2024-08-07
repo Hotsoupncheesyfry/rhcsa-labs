@@ -1,0 +1,7 @@
+- name: Config Chapter 2 Lab 2
+  hosts: target
+  tasks:
+    - name: Display 1st and 3rd fields in /etc/passwd
+      ansible.builtin.shell:
+        cmd: cat /etc/passwd | cut -d":" -f1,3 --output-delimeter" " | grep -E "^[0-9][0-9] "
+        
