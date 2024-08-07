@@ -13,3 +13,4 @@
     - name: Reboot
       ansible.builtin.reboot:
         reboot_timeout: 5
+      become: true
