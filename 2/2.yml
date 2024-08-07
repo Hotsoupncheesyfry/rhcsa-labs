@@ -1,0 +1,24 @@
+- name: Config Chapter 2 Lab 2
+  hosts: target
+  tasks:
+    - name: Create rhcsa dir
+      ansible.builtin.shell:
+        cmd: mkdir ~/rhcsa
+    - name: Create lab.txt
+      ansible.builtin.shell:
+        cmd: echo "Labs for the RHCSA Exam" > ~/rhcsa/lab.txt
+    - name: Append date to lab.txt
+      ansible.builtin.shell:
+        cmd: date +%F >> ~/rhcsa/lab.txt
+    - name: Count characters in lab.txt
+      ansible.builtin.shell:
+        cmd: cat ~/rhcsa/lab.txt; wc -c ~/rhcsa/lab.txt
+    - name: Create archive dir
+      ansible.builtin.shell:
+        cmd: mkdir ~/rhcsa/archive
+    - name: Move lab.txt to archive dir
+      ansible.builtin.shell:
+        cmd: mv ~/rhcsa/lab.txt ~/rhcsa/archive/
+    - name: Move rhcsa dir to /tmp
+      ansible.builtin.shell:
+        cmd: mv ~/rhcsa /tmp
