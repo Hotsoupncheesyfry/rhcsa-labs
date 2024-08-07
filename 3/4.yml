@@ -1,0 +1,19 @@
+- name: Config Chapter 3 Lab 4
+  hosts: target
+  tasks:
+    - name: Back up /etc/hosts
+      ansible.builtin.shell:
+        cmd: cp /etc/hosts /root/etc-hosts-$(date +%s)
+    - name: Add hosts entry
+      ansible.builtin.shell:
+        cmd: echo "{{ tester_ip }} tester" >> /etc/hosts
+
+- name: Config other hosts 
+  hosts: target2
+  tasks:
+    - name: Back up /etc/hosts
+      ansible.builtin.shell:
+        cmd: cp /etc/hosts /root/etc-hosts-$(date +%s)
+    - name: Add hosts entry
+      ansible.builtin.shell:
+        cmd: echo "{{ server_ip }} server" >> /etc/hosts
