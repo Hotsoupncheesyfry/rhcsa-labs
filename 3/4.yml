@@ -4,9 +4,11 @@
     - name: Back up /etc/hosts
       ansible.builtin.shell:
         cmd: cp /etc/hosts /root/etc-hosts-$(date +%s)
+      become: true
     - name: Add hosts entry
       ansible.builtin.shell:
         cmd: echo "{{ tester_ip }} tester" >> /etc/hosts
+      become: true
     - name: Test ping IP and hostname
       ansible.builtin.shell:
         cmd: ping -c 4 {{ tester_ip }}; ping -c 4 tester
@@ -17,9 +19,11 @@
     - name: Back up /etc/hosts
       ansible.builtin.shell:
         cmd: cp /etc/hosts /root/etc-hosts-$(date +%s)
+      become: true
     - name: Add hosts entry
       ansible.builtin.shell:
         cmd: echo "{{ server_ip }} server" >> /etc/hosts
+      become: true
     - name: Test ping IP and hostname
       ansible.builtin.shell:
         cmd: ping -c 4 {{ server_ip }}; ping -c 4 server
