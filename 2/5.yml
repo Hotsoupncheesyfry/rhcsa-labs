@@ -1,4 +1,4 @@
-- name: Config Chapter 2 Lab 2
+- name: Config Chapter 2 Lab 5
   hosts: target
   tasks:
     - name: Make new log dir

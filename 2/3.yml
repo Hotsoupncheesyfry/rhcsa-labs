@@ -1,4 +1,4 @@
-- name: Config Chapter 2 Lab 2
+- name: Config Chapter 2 Lab 3
   hosts: target
   tasks:
     - name: Create list of conf files in /etc
@@ -11,4 +11,4 @@
     - name: Display lines that contain string "Security"
       ansible.builtin.shell:
         cmd: grep security ~/filelist.txt
-        
+

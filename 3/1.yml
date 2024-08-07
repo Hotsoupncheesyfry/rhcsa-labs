@@ -1,0 +1,15 @@
+- name: Config Chapter 2 Lab 1
+  hosts: target
+  tasks:
+    - name: Copy script for lab setup
+      ansible.builtin.copy:
+        src: ch03lab01.sh
+        dest: /tmp/
+        mode: 0777
+    - name: Execute lab setup script
+      ansible.builtin.shell:
+        cmd: /tmp/ch03lab01.sh
+    - name: Reboot
+      ansible.builtin.reboot:
+        reboot_timeout: 5
+        ignore_errors: true

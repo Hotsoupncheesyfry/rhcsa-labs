@@ -1,4 +1,4 @@
-- name: Config Chapter 2 Lab 2
+- name: Config Chapter 2 Lab 4
   hosts: target
   tasks:
     - name: Display 1st and 3rd fields (reverse order) in /etc/passwd and filter for 2-digit ID's
