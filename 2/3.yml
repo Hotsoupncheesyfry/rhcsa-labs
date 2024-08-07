@@ -4,6 +4,7 @@
     - name: Create list of conf files in /etc
       ansible.builtin.shell:
         cmd: find /etc -name *.conf > ~/filelist.txt
+      become: true
     - name: Count the number of files found
       ansible.builtin.shell:
         cmd: wc -l ~/filelist.txt
