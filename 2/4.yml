@@ -3,5 +3,5 @@
   tasks:
     - name: Display 1st and 3rd fields in /etc/passwd
       ansible.builtin.shell:
-        cmd: cat /etc/passwd | cut -d":" -f1,3 --output-delimiter" " | grep -E "^[0-9][0-9] "
+        cmd: cat /etc/passwd | cut -d":" -f1,3 --output-delimiter " " | grep -E "^[0-9][0-9] "
         
