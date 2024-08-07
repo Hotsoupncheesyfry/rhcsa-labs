@@ -1,0 +1,16 @@
+- name: Config Chapter 3 Lab 3
+  hosts: target
+  tasks:
+    - name: Copy script for lab setup
+      ansible.builtin.copy:
+        src: ch03lab03.sh
+        dest: /tmp/
+        mode: 0777
+    - name: Execute lab setup script
+      ansible.builtin.shell:
+        cmd: /tmp/ch03lab03.sh
+      become: true
+    - name: Reboot (will fail - lab is to repair network conn)
+      ansible.builtin.reboot:
+        reboot_timeout: 5
+      become: true
