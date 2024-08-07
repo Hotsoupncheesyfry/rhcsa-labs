@@ -9,7 +9,7 @@
     - name: Execute lab setup script
       ansible.builtin.shell:
         cmd: /tmp/ch03lab01.sh
-      beomce: true
+      become: true
     - name: Reboot
       ansible.builtin.reboot:
         reboot_timeout: 5
