@@ -1,0 +1,35 @@
+- name: Config Chapter 4 Lab 1
+  hosts: target
+  tasks:
+    - name: Create and save a list of all installed RPM's
+      ansible.builtin.shell:
+        cmd: rpm -qa > /root/pkgs.txt
+      become: true
+    - name: Display number of packages installed on system
+      ansible.builtin.shell:
+        cmd: wc -l /root/pkgs.txt
+      become: true
+    - name: Display rpm ownder for file /etc/sestatus.conf
+      ansible.builtin.shell:
+        cmd: rpm -qf /etc/sestatus.conf
+    - name: Print description of zlib package
+      ansible.builtin.shell:
+        cmd: rpm -qi zlib
+    - name: Print files provided by zlib package
+      ansible.builtin.shell:
+        cmd: rpm -ql zlib
+    - name: MUST RUN THIS or similar FROM KVM host BEFORE PROCEEDING (ATTACH DVD ROM FOR NEXT STEP)!!
+      ansible.builtin.debug:
+        msg: virsh attach-disk rhcsa-exam-server /var/lib/libvirt/images/Rocky-9.3-x86_64-dvd.iso sda --driver qemu --type cdrom --mode readonly
+    - name: Pause -- ensure ^^ has been completed
+      ansible.builtin.pause:
+    - name: Mount RHEL Install DVD (warning - requires cdrom inserted)
+      ansible.builtin.shell:
+        cmd: mkdir /root/dvd; mount /dev/sr0 /root/dvd;
+      become: true
+    - name: Display tmux description
+      ansible.builtin.shell:
+        cmd: rpm -qi /root/dvd/BaseOS/Packages/t/tmux*.rpm
+    - name: Display tmux files
+      ansible.builtin.shell:
+        cmd: rpm -ql /root/dvd/BaseOS/Packages/t/tmux*.rpm
