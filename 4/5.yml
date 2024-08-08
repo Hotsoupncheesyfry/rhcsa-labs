@@ -1,0 +1,9 @@
+- name: Config Chapter 4 Lab 5
+  hosts: target
+  tasks:
+    - name: Display info on graphical adminiatration group package
+      ansible.builtin.shell:
+        cmd: dnf group info "Graphical Administration Tools"
+    - name: Install Wireshark
+      ansible.builtin.shell:
+        cmd: ACCEPT_EULA=Y dnf install -y wireshark

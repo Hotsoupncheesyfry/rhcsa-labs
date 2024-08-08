@@ -1,4 +1,4 @@
-- name: Config Chapter 4 Lab 3
+- name: Config Chapter 4 Lab 4
   hosts: target
   tasks:
     - name: clean dnf cache
