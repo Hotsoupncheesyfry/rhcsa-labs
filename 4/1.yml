@@ -30,6 +30,12 @@
     - name: Display tmux description
       ansible.builtin.shell:
         cmd: rpm -qi /root/dvd/BaseOS/Packages/t/tmux*.rpm
+      become: true
     - name: Display tmux files
       ansible.builtin.shell:
         cmd: rpm -ql /root/dvd/BaseOS/Packages/t/tmux*.rpm
+      become: true
+    - name: Cleanup
+      ansible.builtin.shell:
+        cmd: umount /root/dvd; rm -rf /root/dvd
+      become: true
