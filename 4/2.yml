@@ -9,3 +9,4 @@
     - name: Search and install mssql-tools
       ansible.builtin.shell:
         cmd: dnf search mssql-tools; dnf install -y mssql-tools
+      become: true
