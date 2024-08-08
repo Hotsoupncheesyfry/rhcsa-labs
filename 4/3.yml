@@ -4,9 +4,11 @@
     - name: tamper sshd
       ansible.builtin.shell:
         cmd: touch /usr/sbin/sshd
+      become: true
     - name: identify the tampered file
       ansible.builtin.shell: 
         cmd: ls -lahtr /usr/sbin/
     - name: reinstall associated package
       ansible.builtin.shell:
         cmd: dnf reinstall $(rpm -qf /usr/sbin/sshd)
+      become: true
