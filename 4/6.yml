@@ -1,0 +1,6 @@
+- name: Config Chapter 4 Lab 6
+  hosts: target
+  tasks:
+    - name: Install posgresql module 15 client
+      ansible.builtin.shell:
+        cmd: dnf module install -y postgresql:15/client
