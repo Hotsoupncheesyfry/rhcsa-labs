@@ -1,0 +1,6 @@
+[sql-tools]
+name=SQL Tools
+metalink=https://packages.microsoft.com/rhel/9/prod/
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+gpgcheck=1
+enabled=1

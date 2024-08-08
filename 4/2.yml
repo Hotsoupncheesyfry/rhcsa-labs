@@ -1,0 +1,11 @@
+- name: Config Chapter 4 Lab 2
+  hosts: target
+  tasks:
+    - name: Copy sql.repo
+      ansible.builtin.copy:
+        src: 2.repo
+        dest: /etc/yum.repos.d/sql.repo
+      become: true
+    - name: Search and install mssql-tools
+      ansible.builtin.shell:
+        cmd: dnf search mssql-tools; dnf install -y mssql-tools
