@@ -1,0 +1,12 @@
+- name: Config Chapter 4 Lab 3
+  hosts: target
+  tasks:
+    - name: tamper sshd
+      ansible.builtin.shell:
+        cmd: touch /usr/sbin/sshd
+    - name: identify the tampered file
+      ansible.builtin.shell: 
+        cmd: ls -lahtr /usr/sbin/
+    - name: reinstall associated package
+      ansible.builtin.shell:
+        cmd: dnf reinstall $(rpm -qf /usr/sbin/sshd)
