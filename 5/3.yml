@@ -1,0 +1,14 @@
+- name: Config Chapter 5 Lab 3
+  hosts: target
+  tasks:
+    - name: Save a copy of grub.cfg
+      ansible.builtin.shell: 
+        cmd: cp /boot/grub2/grub.cfg ~
+    - name: Edit grub timeout from 2 to 10 seconds
+      ansible.builtin.shell:
+        cmd: sed -i -E 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=10/g' /etc/default/grub
+      become: true
+    - name: run grub mkconfig
+      ansible.builtin.shell:
+        cmd: grub2-mkconfig > /etc/grub2.cfg
+      become: true
