@@ -4,6 +4,7 @@
     - name: Save a copy of grub.cfg
       ansible.builtin.shell: 
         cmd: cp /boot/grub2/grub.cfg ~
+      become: true
     - name: Edit grub timeout from 2 to 10 seconds
       ansible.builtin.shell:
         cmd: sed -i -E 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=10/g' /etc/default/grub
